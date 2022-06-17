@@ -30,6 +30,7 @@
     <string name="product_success_message">Add Product Successful</string>
     <string name="error_product_exists">Product Already Exists</string>
 
+
     <string-array name="roles">
         <item>---You Want to Be A?---</item>
         <item>Seller</item>

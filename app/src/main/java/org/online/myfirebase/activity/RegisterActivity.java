@@ -1,13 +1,12 @@
 package org.online.myfirebase.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference database;
     private Button regis;
     private FirebaseAuth mAuth;
+    private TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         //INISIALISASI BUTTON
         nama = (EditText) findViewById(R.id.textInputEditTextName);
         password = (EditText) findViewById(R.id.textInputEditTextPassword);
+        login=(TextView) findViewById(R.id.appCompatTextViewLoginLink);
         confirmPassword = (EditText) findViewById(R.id.textInputEditTextConfirmPassword);
         spinnerRole = (Spinner) findViewById(R.id.listRoles);
         FirebaseApp.initializeApp(this);
@@ -52,6 +53,12 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
               registerUser();
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
     }
